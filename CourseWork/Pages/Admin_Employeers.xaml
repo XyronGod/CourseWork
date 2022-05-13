@@ -1,0 +1,89 @@
+﻿<Page x:Class="CourseWork.Pages.Admin_Employeers"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CourseWork.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Admin_Employeers"
+      Background="White">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="104*"/>
+            <RowDefinition Height="29*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="22*"/>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="224*"/>
+        </Grid.RowDefinitions>
+        <TabControl Grid.RowSpan="7">
+            <TabItem Header="Изменение данных сотрудников">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBox x:Name="_Text_SurName" Text="{Binding Users.SurName}" materialDesign:HintAssist.Hint="Изменение Фамилии" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Grid.Row="1" Cursor="Arrow"/>
+                    <TextBox x:Name="_Text_FirstName" Text="{Binding Users.FirstName}" materialDesign:HintAssist.Hint="Изменение имени" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Cursor="Arrow"/>
+                    <TextBox x:Name="_Text_Adress" Text="{Binding Users.Adress}" materialDesign:HintAssist.Hint="Изменение Адреса" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Grid.Row="3" Cursor="Arrow"/>
+                    <TextBox x:Name="_Text_Patronymic" Text="{Binding Users.Patronymic}" materialDesign:HintAssist.Hint="Изменение Отчества" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Grid.Row="2" Cursor="Arrow"/>
+                    <ListBox ItemsSource="{Binding UsersList}" x:Name="_List_Employee" Grid.Column="1"   Grid.RowSpan="5" SelectionChanged="_List_Employee_SelectionChanged">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock>
+                                    <Run Text="{Binding SurName}"/>
+                                    <Run Text=" "/>
+                                    <Run Text="{Binding FirstName}"/>
+                                    <Run Text=" "/>
+                                    <Run Text="{Binding Patronymic}"/>
+                                </TextBlock>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <ComboBox ItemsSource="{Binding Roles}" SelectedItem="{Binding Users.Roles}" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Изменение роли" x:Name="_Combo_Role" HorizontalAlignment="Left" Margin="10,23,0,0" Grid.Row="4" VerticalAlignment="Top" Width="120">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock><Run Text="{Binding Name}"/></TextBlock>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Button Content="Изменить" HorizontalAlignment="Left" Height="61" Margin="270,0,0,0" Grid.Row="4" VerticalAlignment="Center" Width="200" Click="Button_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Добавление сотрудника">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBox x:Name="_Text_SurName1" materialDesign:HintAssist.Hint="Введите фамилию" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+                    <TextBox x:Name="_Text_Patronymic1" materialDesign:HintAssist.Hint="Введите Отчество" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Center" Width="120" Grid.Row="2"/>
+                    <TextBox x:Name="_Text_Login" materialDesign:HintAssist.Hint="Введите Логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Grid.Row="4"/>
+                    <TextBox x:Name="_Text_FirstName1" materialDesign:HintAssist.Hint="Введите Имя" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+                    <TextBox x:Name="_Text_Adres" materialDesign:HintAssist.Hint="Введите Адрес" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Grid.Row="3"/>
+                    <ComboBox x:Name="_Combo_Role1" materialDesign:HintAssist.Hint="Роль" Style="{StaticResource MaterialDesignFloatingHintComboBox}" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="6" Width="120" VerticalAlignment="Top"/>
+                    <Button Content="Добавить" HorizontalAlignment="Center" Margin="0,15,0,0" Grid.Row="5" VerticalAlignment="Top" Click="Button_Click_1"/>
+                    <PasswordBox materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" x:Name="_Text_Password" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="5" VerticalAlignment="Center" Width="120" Cursor="Arrow"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Page>

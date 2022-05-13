@@ -1,0 +1,45 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CourseWork.Pages"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="CourseWork.Pages.User_Main"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="User_Main"
+      Background="white">
+
+    <Grid>
+        <TabControl>
+            <TabItem Header="Выбор книг">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ListBox x:Name="_List_Books" SelectionChanged="_List_Books_SelectionChanged"/>
+                    <ListBox x:Name="_List_Basket" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="267"/>
+                    <Button x:Name="_Butt_Add" Grid.Column="1" Content="Добавить в корзину" HorizontalAlignment="Left" Margin="10,360,0,0" VerticalAlignment="Top" Click="_Butt_Add_Click"/>
+                    <Button x:Name="_Butt_cancel" Grid.Column="1" Content="Убрать из корзины" Margin="10,323,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="157" Click="_Butt_cancel_Click"/>
+                    <Button x:Name="_Butt_Reservation" Grid.Column="1" Content="Забронировать" HorizontalAlignment="Left" Margin="10,286,0,0" VerticalAlignment="Top" Click="_Butt_Reservation_Click"/>
+                    <Label x:Name="_Label_Amount" Grid.Column="1" Content="" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="_Label_Count" Grid.Column="1" Content="" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="_Label_Price" Grid.Column="1" Content="" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top"/>
+                    <Button Grid.Column="1" Content="Купить" HorizontalAlignment="Left" Margin="10,249,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
+
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Личный кабинет">
+                <Grid Background="#FFE5E5E5">
+                    <Button Content="История покупок" Margin="281,169,281,201" Click="Button_Click"></Button>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+
+    </Grid>
+</Page>

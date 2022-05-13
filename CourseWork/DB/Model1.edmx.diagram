@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="27746cb001494cf080c77be8cab2b902" Name="Diagram1">
+        <EntityTypeShape EntityType="k_08Model.Authors" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="k_08Model.BookReservation" Width="1.5" PointX="5.25" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="k_08Model.Books" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="k_08Model.Cities" Width="1.5" PointX="1.5" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="k_08Model.lending_of_books" Width="1.5" PointX="8.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="k_08Model.Publishers" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="k_08Model.Roles" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="k_08Model.sysdiagrams" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="k_08Model.Users" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <AssociationConnector Association="k_08Model.FK_Books_Authors" ManuallyRouted="false" />
+        <AssociationConnector Association="k_08Model.FK_BookReservation_Books" ManuallyRouted="false" />
+        <AssociationConnector Association="k_08Model.FK_BookReservation_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="k_08Model.FK_BookReservation_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="k_08Model.FK_Books_Publishers" ManuallyRouted="false" />
+        <AssociationConnector Association="k_08Model.FK_lending_of_books_Books" ManuallyRouted="false" />
+        <AssociationConnector Association="k_08Model.FK_Publishers_Cities" ManuallyRouted="false" />
+        <AssociationConnector Association="k_08Model.FK_lending_of_books_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="k_08Model.FK_lending_of_books_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="k_08Model.FK_Users_Roles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="k_08Model.StatusBook" Width="1.5" PointX="8.375" PointY="6.875" />
+        <AssociationConnector Association="k_08Model.FK_BookReservation_StatusBook" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
