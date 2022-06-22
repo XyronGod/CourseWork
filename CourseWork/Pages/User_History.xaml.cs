@@ -24,7 +24,7 @@ namespace CourseWork.Pages
         {
             InitializeComponent();
         }
-        DB.k_08Entities Connection = new DB.k_08Entities();
+        DB.Library_CourseWorkEntities Connection = new DB.Library_CourseWorkEntities();
         public void LoadHistory ()
         {
             var History = Connection.lending_of_books.ToList();

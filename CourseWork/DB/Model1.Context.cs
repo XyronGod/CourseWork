@@ -13,10 +13,10 @@ namespace CourseWork.DB
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class k_08Entities : DbContext
+    public partial class Library_CourseWorkEntities : DbContext
     {
-        public k_08Entities()
-            : base("name=k_08Entities")
+        public Library_CourseWorkEntities()
+            : base("name=Library_CourseWorkEntities")
         {
         }
     
@@ -32,8 +32,8 @@ namespace CourseWork.DB
         public virtual DbSet<lending_of_books> lending_of_books { get; set; }
         public virtual DbSet<Publishers> Publishers { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
+        public virtual DbSet<StatusBook> StatusBook { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Users> Users { get; set; }
-        public virtual DbSet<StatusBook> StatusBook { get; set; }
     }
 }

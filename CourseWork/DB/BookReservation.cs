@@ -22,8 +22,8 @@ namespace CourseWork.DB
         public string Status { get; set; }
     
         public virtual Books Books { get; set; }
+        public virtual StatusBook StatusBook { get; set; }
         public virtual Users Users { get; set; }
         public virtual Users Users1 { get; set; }
-        public virtual StatusBook StatusBook { get; set; }
     }
 }

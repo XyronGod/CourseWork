@@ -26,7 +26,7 @@ namespace CourseWork.Pages
             LoadAllBooks();
         }
         
-        DB.k_08Entities Connection = new DB.k_08Entities();
+        DB.Library_CourseWorkEntities Connection = new DB.Library_CourseWorkEntities();
 
 
         private void LoadAllBooks ()
@@ -40,9 +40,9 @@ namespace CourseWork.Pages
 
         private void _Butt_Reservation_Click(object sender, RoutedEventArgs e)
         {
-            var IDBookReservation = Connection.BookReservation.ToList().Count + 1;
+            int IDBookReservation = Connection.BookReservation.ToList().Count + 1;
 
-            var LoginClient = User.UserName;
+            string LoginClient = User.UserName;
 
             if (_List_Basket.Items.Count <= 0)
             {
@@ -98,9 +98,9 @@ namespace CourseWork.Pages
         {
             if (_List_Books.SelectedIndex != -1)
             {
-                var Book = _List_Books.SelectedItem as DB.Books;
+                DB.Books Book = _List_Books.SelectedItem as DB.Books;
 
-                foreach (var Book12 in _List_Basket.Items)
+                foreach (object Book12 in _List_Basket.Items)
                 {
                     if (Book == Book12)
                     {
@@ -111,7 +111,7 @@ namespace CourseWork.Pages
 
                 _List_Basket.Items.Add(Book);
                 double Price = Convert.ToDouble(Book.Price);
-                Amount = Amount + Price;
+                Amount += Price;
                 _Label_Amount.Content = "Общая сумма: " + Amount + " руб.";
             }
             else
@@ -132,7 +132,7 @@ namespace CourseWork.Pages
         {
             if (_List_Basket.SelectedIndex != -1)
             {
-                var Book = _List_Basket.SelectedItem as DB.Books;
+                DB.Books Book = _List_Basket.SelectedItem as DB.Books;
                 _List_Basket.Items.RemoveAt(_List_Basket.SelectedIndex);
                 double Price = Convert.ToDouble(Book.Price);
                 Amount = Amount - Price;
@@ -153,9 +153,9 @@ namespace CourseWork.Pages
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            var IDLending = Connection.lending_of_books.ToList().Count + 1;
+            int IDLending = Connection.lending_of_books.ToList().Count + 1;
 
-            var LoginClient = User.UserName;
+            string LoginClient = User.UserName;
 
             if (_List_Basket.Items.Count <= 0)
             {
@@ -163,7 +163,7 @@ namespace CourseWork.Pages
             }
             else
             {
-                foreach (var Books in _List_Basket.Items)
+                foreach (object Books in _List_Basket.Items)
                 {
                     var Book = Books as DB.Books;
                     if (Book != null)

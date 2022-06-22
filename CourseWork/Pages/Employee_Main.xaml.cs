@@ -25,7 +25,7 @@ namespace CourseWork.Pages
             InitializeComponent();
         }
 
-        DB.k_08Entities Connection = new DB.k_08Entities();
+        DB.Library_CourseWorkEntities Connection = new DB.Library_CourseWorkEntities();
 
         public void LoadBooks()
         {

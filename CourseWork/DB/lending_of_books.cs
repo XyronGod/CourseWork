@@ -18,7 +18,7 @@ namespace CourseWork.DB
         public string Reader { get; set; }
         public int Book { get; set; }
         public System.DateTime DateOfIssue { get; set; }
-        public Nullable<System.DateTime> ReturnDate { get; set; }
+        public System.DateTime ReturnDate { get; set; }
         public string Employee { get; set; }
     
         public virtual Books Books { get; set; }

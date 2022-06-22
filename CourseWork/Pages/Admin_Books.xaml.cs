@@ -23,6 +23,16 @@ namespace CourseWork.Pages
         public Admin_Books()
         {
             InitializeComponent();
+            LoadAuthorsAndPublishers();
         }
+        DB.Library_CourseWorkEntities Connection = new DB.Library_CourseWorkEntities();
+        private void LoadAuthorsAndPublishers()
+        {
+            Combo_Author.ItemsSource = Connection.Authors.ToList();
+            Combo_Author.DisplayMemberPath = "Name";
+            Combo_Publish.ItemsSource = Connection.Publishers.ToList();
+            Combo_Publish.DisplayMemberPath = "Name";
+        }
+    
     }
 }

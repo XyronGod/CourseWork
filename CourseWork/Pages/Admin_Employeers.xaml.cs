@@ -25,7 +25,7 @@ namespace CourseWork.Pages
 
         public List <DB.Users> UsersList { get; set; }
 
-        DB.k_08Entities Connection = new DB.k_08Entities();
+        DB.Library_CourseWorkEntities Connection = new DB.Library_CourseWorkEntities();
 
         public List <DB.Roles> Roles { get; set; }
 
@@ -93,7 +93,7 @@ namespace CourseWork.Pages
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            var UserList = Connection.Users.ToList();
+            List<DB.Users> UserList = Connection.Users.ToList();
 
             string Login = _Text_Login.Text;
             string Password = _Text_Password.Password;
@@ -111,7 +111,7 @@ namespace CourseWork.Pages
             }
             else
             {
-                foreach (var User in UserList)
+                foreach (DB.Users User in UserList)
                 {
                     if (Login == User.Login)
                     {
@@ -138,6 +138,10 @@ namespace CourseWork.Pages
                     {
                         Clear();
                         MessageBox.Show("Пользователь успешно добавлен!");
+                        LoadRoles();
+                        LoadUsers();
+                        UsersList = Connection.Users.ToList();
+                        DataContext = this;
                     }
                     else
                     {
@@ -145,6 +149,36 @@ namespace CourseWork.Pages
                     }
 
                 }
+            }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            bool Error = false;
+            List<DB.Roles> roles = Connection.Roles.ToList();
+            string AddRole = _Text_AddRole.Text;
+            foreach(DB.Roles roles1 in roles)
+            {
+                if (AddRole == roles1.Name)
+                {
+                    Error = true;
+                }
+            }
+            if (Error == false)
+            {
+                DB.Roles roles1 = new DB.Roles()
+                {
+                    Name = AddRole
+                };
+                Connection.Roles.Add(roles1);
+                Connection.SaveChanges();
+                MessageBox.Show("Роль успешно добавлена!");
+                _Combo_Role1.Items.Clear();
+                LoadRolesCombo();
+            }
+            else
+            {
+                MessageBox.Show("Такая роль уже существует!");
             }
         }
     }

@@ -36,7 +36,7 @@ namespace CourseWork.Pages
         }
 
 
-        DB.k_08Entities Connection = new DB.k_08Entities();
+        DB.Library_CourseWorkEntities Connection = new DB.Library_CourseWorkEntities();
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
